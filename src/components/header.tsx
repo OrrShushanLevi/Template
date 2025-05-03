@@ -26,9 +26,9 @@ export function Header() {
           <div className="flex items-center gap-2">
             <div className="lg:hidden w-9 h-9 flex items-center justify-center"></div>
             <Link href="/" className="flex items-center gap-2">
-              <span className="h-8 w-8 flex items-center justify-center rounded-full bg-purple-600 text-white font-bold">Y</span>
-              <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-yellow-400">
-                YUV.AI
+              <span className="h-8 w-8 flex items-center justify-center rounded-full bg-blue-600 text-white font-bold">F</span>
+              <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-400">
+                Flomy
               </span>
             </Link>
           </div>
@@ -58,9 +58,9 @@ export function Header() {
             </SheetContent>
           </Sheet>
           <Link href="/" className="flex items-center gap-2">
-            <span className="h-8 w-8 flex items-center justify-center rounded-full bg-purple-600 text-white font-bold">Y</span>
-            <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-yellow-400">
-              YUV.AI
+            <span className="h-8 w-8 flex items-center justify-center rounded-full bg-blue-600 text-white font-bold">F</span>
+            <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-400">
+              Flomy
             </span>
           </Link>
         </div>

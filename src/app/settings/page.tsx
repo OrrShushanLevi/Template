@@ -60,18 +60,18 @@ export default async function SettingsPage() {
                 <CardContent className="space-y-6">
                   <div className="space-y-4">
                     <div className="grid gap-2">
-                      <Label htmlFor="name">Full Name</Label>
-                      <Input id="name" placeholder="Yuval Avidani" />
+                      <Label htmlFor="name">Name</Label>
+                      <Input id="name" placeholder="Orr Shoshan Levy" />
                     </div>
                     
                     <div className="grid gap-2">
                       <Label htmlFor="username">Username</Label>
-                      <Input id="username" placeholder="yuvalav" />
+                      <Input id="username" placeholder="Your unique username" />
                     </div>
                     
                     <div className="grid gap-2">
                       <Label htmlFor="email">Email</Label>
-                      <Input id="email" placeholder="yuval@yuv.ai" type="email" />
+                      <Input id="email" placeholder="your.email@example.com" type="email" />
                     </div>
                     
                     <div className="grid gap-2">
@@ -79,7 +79,7 @@ export default async function SettingsPage() {
                       <textarea 
                         id="bio" 
                         className="flex min-h-[80px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
-                        placeholder="AI Builder & Speaker | Making technical content accessible in non-technical ways"
+                        placeholder="Tell us a little about yourself"
                       />
                     </div>
                   </div>

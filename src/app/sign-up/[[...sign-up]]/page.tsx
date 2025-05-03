@@ -20,16 +20,16 @@ export default function SignUpPage() {
       <div className="w-full max-w-md z-10 pt-24 flex-1 flex flex-col justify-center">
         <div className="text-center mb-8">
           <div className="inline-flex flex-col items-center gap-2 mb-6">
-            <span className="h-14 w-14 flex items-center justify-center rounded-full bg-purple-600 text-white font-bold text-2xl shadow-lg">Y</span>
-            <span className="font-bold text-3xl bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-yellow-400">
-              YUV.AI
+            <span className="h-14 w-14 flex items-center justify-center rounded-full bg-blue-600 text-white font-bold text-2xl shadow-lg">F</span>
+            <span className="font-bold text-3xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-400">
+              Flomy
             </span>
           </div>
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Create your account</h1>
-          <p className="text-gray-600 dark:text-gray-300 text-lg">Join us and start building amazing projects</p>
+          <p className="text-gray-600 dark:text-gray-300 text-lg">Sign up to start managing your bills easily.</p>
         </div>
         
-        <div className="backdrop-blur-2xl bg-white/40 dark:bg-gray-900/40 border border-white/50 dark:border-purple-900/30 shadow-2xl rounded-2xl overflow-hidden">
+        <div className="backdrop-blur-2xl bg-white/40 dark:bg-gray-900/40 border border-white/50 dark:border-blue-900/30 shadow-2xl rounded-2xl overflow-hidden">
           <div className="p-1">
             <SignUp 
               redirectUrl="/dashboard"
@@ -39,14 +39,14 @@ export default function SignUpPage() {
                   card: "bg-transparent shadow-none",
                   headerTitle: "text-xl font-semibold text-gray-900 dark:text-white",
                   headerSubtitle: "text-sm text-gray-600 dark:text-gray-300",
-                  socialButtonsBlockButton: "border border-gray-300 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 hover:bg-purple-50 dark:hover:bg-purple-900/30",
+                  socialButtonsBlockButton: "border border-gray-300 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 hover:bg-blue-50 dark:hover:bg-blue-900/30",
                   socialButtonsBlockButtonText: "text-gray-700 dark:text-gray-300 font-medium",
                   formFieldLabel: "text-gray-700 dark:text-gray-300",
-                  formFieldInput: "rounded-lg border border-gray-300 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-600",
-                  formButtonPrimary: "bg-purple-600 hover:bg-purple-700 text-white",
-                  footerActionLink: "text-purple-600 hover:text-purple-700",
+                  formFieldInput: "rounded-lg border border-gray-300 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600",
+                  formButtonPrimary: "bg-blue-600 hover:bg-blue-700 text-white",
+                  footerActionLink: "text-blue-600 hover:text-blue-700",
                   identityPreviewText: "text-gray-600 dark:text-gray-300",
-                  identityPreviewEditButton: "text-purple-600 hover:text-purple-700",
+                  identityPreviewEditButton: "text-blue-600 hover:text-blue-700",
                 }
               }}
             />
@@ -56,17 +56,17 @@ export default function SignUpPage() {
         <div className="mt-8 text-center">
           <p className="text-sm text-gray-600 dark:text-gray-400">
             Already have an account?{' '}
-            <Link href="/sign-in" className="font-medium text-purple-600 hover:text-purple-700">
+            <Link href="/sign-in" className="font-medium text-blue-600 hover:text-blue-700">
               Sign in <ArrowRight className="inline h-3 w-3" />
             </Link>
           </p>
         </div>
         
         {/* Enhanced animated decorative elements */}
-        <div className="absolute -bottom-4 -left-4 h-12 w-12 rounded-full bg-yellow-500/70 flex items-center justify-center text-white shadow-lg animate-bounce hidden sm:flex">
-          <span className="h-6 w-6 rounded-full bg-yellow-400"></span>
+        <div className="absolute -bottom-4 -left-4 h-12 w-12 rounded-full bg-cyan-500/70 flex items-center justify-center text-white shadow-lg animate-bounce hidden sm:flex">
+          <span className="h-6 w-6 rounded-full bg-cyan-400"></span>
         </div>
-        <div className="absolute top-1/3 -right-6 h-10 w-10 rounded-full bg-purple-400/60 animate-pulse hidden sm:block"></div>
+        <div className="absolute top-1/3 -right-6 h-10 w-10 rounded-full bg-blue-400/60 animate-pulse hidden sm:block"></div>
       </div>
     </div>
   );

@@ -1,4 +1,10 @@
-# NCM Boilerplate Development Plan
+# NCM Business Portfolio - Development Plan
+
+**Status:** In Progress
+
+This document outlines the development tasks and progress for the Flomy project by Orr Shoshan Levy.
+
+## Key Objectives
 
 ## Overview
 This document outlines the development tasks and progress for the NCM Boilerplate project by Yuval Avidani.

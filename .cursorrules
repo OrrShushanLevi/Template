@@ -1,0 +1,52 @@
+Cursor AI Agent Rules: Flomy MVP Project Management (Final)
+Core Directive: Act as an intelligent, context-aware development partner for the Flomy MVP project. Your primary goals are to assist in implementing features accurately according to specification, maintain documentation alignment with the codebase, track progress, log issues systematically, and promote good development practices.
+Key Project Artifacts: Always be aware of and prioritize the following files in the project root:
+README.md: Describes the current state, tech stack, and setup of the project. Reflects the reality of the codebase at any given time.
+PRD.md: The Product Requirements Document. Defines the target state, features, and requirements for the Flomy MVP. This is the specification.
+TASK.md: The actionable development plan derived from the PRD and README. Lists specific tasks, guidance, and their status. This tracks progress towards the PRD.
+KNOWN_ISSUES.md: A log of identified bugs, broken features, or unresolved problems currently affecting the project.
+Rule Set:
+1. Initialization & Context:
+* 1.1. Always Read First: Before executing any coding task, modification request, or answering questions about the project state:
+* Mandatory Read: Thoroughly read and internalize the latest versions of README.md, PRD.md, TASK.md, and KNOWN_ISSUES.md.
+* Code Scan (If Necessary): If the request involves code modification or analysis, perform a relevant scan of the existing codebase structure, particularly focusing on files mentioned in TASK.md or related to the request.
+* 1.2. Understand Relationships: Recognize the flow: PRD.md defines the goal -> README.md defines the start -> TASK.md bridges the gap -> KNOWN_ISSUES.md tracks obstacles -> Code implements tasks.
+2. Task Management (TASK.md) Workflow:
+* 2.1. Task Identification: When asked to perform work, first identify the corresponding task(s) in TASK.md. If a relevant task doesn't exist, notify the user and suggest adding one based on the PRD.md.
+* 2.2. Task Completion Update: Upon successful completion and verification (ideally confirmed by the user) of a specific task listed in TASK.md:
+* Update Status: Modify the relevant task entry in TASK.md to mark it as "DONE" or similar clear status indicator (e.g., prefix with [x], add a Status: DONE line, or move to a 'Completed' section).
+* Add Timestamp (Optional but Recommended): Add a completion date/timestamp to the task entry (e.g., Completed: YYYY-MM-DD).
+* Note Partial Completion: If a task is only partially completed, add notes under the task detailing what was done and what remains. Do not mark it as fully DONE.
+* 2.3. Task Modification: If implementing a task requires deviation from the TASK.md guidance (e.g., using a different approach, encountering an unexpected blocker):
+* Notify User: Immediately inform the user of the deviation and the reason.
+* Suggest Update: Suggest updating the relevant task description or adding notes in TASK.md to reflect the change in approach or the blocker.
+3. Issue Tracking (KNOWN_ISSUES.md) Workflow:
+* 3.1. Issue Identification: If a bug, broken feature, significant functional gap relative to the PRD, or unexpected error state is identified (either by the user or through your own analysis during development/testing):
+* Check Existing Issues: First, check KNOWN_ISSUES.md to see if this issue (or a very similar one) is already documented.
+* Log New Issue: If it's a new issue, add an entry to KNOWN_ISSUES.md. Include:
+* ID/Timestamp: A unique identifier or timestamp for the entry.
+* Status: Status: OPEN (or similar).
+* Description: A clear, concise description of the problem.
+* Replication Steps (If Applicable): How to reproduce the issue.
+* Affected Area(s): Relevant file(s), component(s), or feature(s).
+* Severity (Optional): High, Medium, Low.
+* Notify User: Inform the user that the issue has been logged in KNOWN_ISSUES.md.
+* 3.2. Issue Resolution Update: When work is done specifically to fix an issue listed in KNOWN_ISSUES.md, and the fix is verified (ideally by the user):
+* Update Status: Change the status of the corresponding entry in KNOWN_ISSUES.md to Status: RESOLVED or Status: CLOSED.
+* Add Resolution Note (Optional): Briefly mention the fix or link to the relevant commit/task.
+* Add Timestamp: Add a resolution date/timestamp.
+4. Code Change & Documentation Synchronization:
+* 4.1. Analyze Impact Before Change: Before implementing any code modification, briefly consider its potential impact based on your understanding of the four key documents. Relate the change to a specific task in TASK.md.
+* 4.2. Analyze Impact After Change: After successfully implementing and testing a code change:
+* TASK.md Update: If the change completes a task, follow rule 2.2.
+* KNOWN_ISSUES.md Update: If the change resolves an issue, follow rule 3.2.
+* README.md & Config File Review: Analyze if the change significantly alters the project's setup, core dependencies, configuration (e.g., next.config.mjs, tailwind.config.ts, tsconfig.json), structure, or how to run it. If yes, notify the user and suggest specific updates needed for README.md and/or the relevant configuration files to accurately reflect the new state. (e.g., "This change added the XYZ library, suggest adding it to the dependencies list in README.md").
+* PRD.md Review: Analyze if the change introduces functionality not described in the PRD.md or deviates significantly from a specified requirement. If yes, notify the user about the potential discrepancy between the code and the specification. Suggest either reverting the change, updating the code to match the PRD, or discussing a potential update to the PRD.md with the product owner/user. Do not automatically update PRD.md based on code changes.
+* 4.3. Proactive Inconsistency Check: Periodically, or when explicitly asked, scan the codebase against README.md, PRD.md, and TASK.md to identify potential inconsistencies (e.g., a library used in code but not mentioned in README, a feature implemented differently than described in PRD, a task marked DONE but code seems incomplete). Notify the user of findings.
+5. General Principles & Best Practices:
+* 5.1. Clarity, Assumption, and Ambiguity: Clearly state any assumptions you make when interpreting requests or specifications. Ask clarifying questions if requirements are ambiguous. When ambiguity is found in PRD.md or TASK.md, present the ambiguity clearly to the user, suggest 2-3 potential interpretations or specific clarifying questions, and await guidance before proceeding with the affected part of the implementation.
+* 5.2. Safety and Verification: Prioritize non-destructive actions. Before making significant changes or deletions (especially to documentation), confirm with the user if unsure. Explain what you are about to do and why.
+* 5.3. Incremental Changes: When implementing larger features, work in logical, incremental steps corresponding to tasks in TASK.md, allowing for easier review and testing.
+* 5.4. Adhere to Project Stack & Security: Ensure all code suggestions and implementations utilize the project's defined tech stack (Next.js, Clerk, MongoDB/Mongoose, TailwindCSS, shadcn/ui, GCS/S3, SWR/React Query, date-fns) as outlined in README.md and refined in TASK.md. Crucially, never hardcode secrets (API keys, passwords, connection strings). Always use environment variables (.env.local) accessed via process.env and ensure .env.local is listed in .gitignore.
+* 5.5. Commit Message Suggestion: After successfully completing a code change related to a specific task (TASK.md) or issue (KNOWN_ISSUES.md), suggest a commit message conforming to a standard format (e.g., Conventional Commits). The message should reference the Task ID or Issue ID. Example Suggestion: "feat(payments): Implement 'Mark as Paid' functionality\n\nImplements the API endpoint and frontend logic...\n\nRelates to: TASK-14"
+* 5.6. Test Awareness: When implementing new functionality or fixing bugs, check for existing related tests. Remind the user if tests might need to be created or updated to cover the changes. Suggest basic test cases based on the task's acceptance criteria or the bug's description.

@@ -13,8 +13,8 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
-  title: 'NCM Business Portfolio',
-  description: 'Developed by Yuval Avidani, AI Builder & Speaker',
+  title: 'Flomy',
+  description: 'Simplify your bill management',
 }
 
 export default function RootLayout({
